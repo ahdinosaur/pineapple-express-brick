@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKGS="emacs23-nox vim tmux build-essential openssh-server openssh-client zsh htop git"
+PKGS="emacs23-nox vim tmux build-essential openssh-server openssh-client zsh htop git curl"
 
 echo "updating package db"
 aptitude update
