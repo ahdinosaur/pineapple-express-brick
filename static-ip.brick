@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+ADDRESS="192.168.1.200"
+NETMASK="255.255.255.0"
+GATEWAY="192.168.1.1"
+
+echo "setting static ip"
+echo "address will be $ADDRESS"
+
+echo "changing /etc/network/interfaces"
+cat > /etc/network/interfaces << EOF
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet static
+	address $ADDRESS
+	netmask $NETMASK
+	gateway $GATEWAY
+EOF
+
+echo "restarting networking"
+/etc/init.d/networking stop && /etc/init.d/networking start

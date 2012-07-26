@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# startargs
+USERS="michael kane"
+# endargs
+
+for user in $USERS; do
+  # check if user exists
+  if [[ "$(getent passwd $user)" == "" ]]; then
+    # if not, add user
+    adduser --shell /bin/zsh --gecos "$user" $user
+  else 
+    echo "modifiying existing user $user"
+    usermod --shell /bin/zsh $user
+  fi
+done

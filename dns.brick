@@ -1,0 +1,4 @@
+#!/bin/bash
+
+aptitude update
+aptitude -y install task-dns-server openresolv

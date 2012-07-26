@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PKGS="emacs23-nox vim tmux build-essential openssh-server openssh-client zsh htop git"
+
+echo "updating package db"
+aptitude update
+
+echo "installing $PKGS"
+aptitude -y install $PKGS

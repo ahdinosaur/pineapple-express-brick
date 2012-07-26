@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# startargs
+ADMINS="michael kane"
+# endargs
+
+for admin in $ADMINS; do
+  echo "adding admin $admin to group sudo"
+  adduser $admin sudo
+done
